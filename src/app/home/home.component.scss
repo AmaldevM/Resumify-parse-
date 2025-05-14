@@ -1,29 +1,150 @@
-.section {
-  margin: 2rem auto;
-  max-width: 900px;
-  padding: 0 1rem;
+@use '@angular/material' as mat;
+
+.home-container {
+  background-color: var(--dark-bg);
+  color: white;
+  min-height: 100vh;
+  padding-bottom: 2rem;
 }
 
-.full-width {
-  width: 100%;
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 4rem 0 2rem;
+
+ h1 span{
+  font-size: 4.5rem;
+  font-weight: 500;
+  line-height: 1.3;
   margin-bottom: 1rem;
+ margin-right: 0.4rem;
+
+  @include mat.elevation(2);
 }
 
-mat-card {
-  margin-bottom: 2rem;
+.text-white {
+  color: white;
 }
-mat-card-header {
-  background-color: #f5f5f5;
+
+.text-green {
+  color: var(--green-accent);
 }
-mat-card-header-title {
-  font-size: 1.5rem;
-  font-weight: bold;
+
+  .subtitle {
+    font-size: 1.2rem;
+    color: var(--deep-green);
+    font-weight: 400;
+  }
 }
-mat-card-content {
-  font-size: 1rem;
-  line-height: 1.5;
+
+.features-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 4rem 0;
+
+  .feature-card {
+    // background: var(--deep-green);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all 0.2s ease;
+    text-align: center;
+
+    &:hover {
+      transform: translateY(-5px);
+      @include mat.elevation(4);
+    }
+
+    .feature-icon {
+      background-color: var(--deep-green);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+
+      mat-icon {
+        color: var(--light-mint);
+        font-size: 30px;
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    h3 {
+      color: var(--light-mint);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+    }
+  }
 }
-mat-card-actions {
-  display: flex;
-  justify-content: flex-end;
+
+.cta-section {
+  text-align: center;
+  margin: 3rem 0;
+
+  .upload-btn {
+    background-color: var(--green-accent);
+    color: white;
+    padding: 0.8rem 2.5rem;
+    font-size: 1.1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: var(--deep-green);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 3rem 0;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .features-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.how-it-works {
+  background-color: #181818; // Dark Background
+  color: white;
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+
+  h2 {
+    color: #d0eed8; // Light Mint
+  }
+
+  .subtitle {
+    color: white;
+  }
+
+  .step {
+    background-color: #434343; // Medium Gray
+margin: 20px;
+padding: 0 40px;
+    h3 {
+      color: #3cb662; // Green Accent
+    }
+  }
 }
